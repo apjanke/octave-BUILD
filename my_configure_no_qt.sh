@@ -1,36 +1,32 @@
 #!/bin/bash
 
-#export PATH=/usr/local/opt/bison/bin:$PATH
-export YACC=/usr/local/opt/bison/bin/yacc
+brew_opt="$(brew --prefix)/opt"
 
-## Set Java's home directory
+#export PATH=$brew_opt/bison/bin:$PATH
+export YACC=$brew_opt/bison/bin/yacc
+
+## Set Java home directory
 export JAVA_HOME="$(/usr/libexec/java_home -v 9)"
 
-brew_opt=/usr/local/opt
+# Set up dependencies that are not linked by Homebrew
 
-# Get Homebrew-managed non-linked utils on the path
 PATH="$brew_opt/texinfo/bin:$PATH"
-PATH="$brew_opt/qt/bin:$PATH"
 
-# Set up dependencies that are not symbolically linked by Homebrew
 LDFLAGS=""
 CPPFLAGS=""
 LDFLAGS="$LDFLAGS -L${brew_opt}/readline/lib"
 CPPFLAGS="$CPPFLAGS -I${brew_opt}/readline/include"
-LDFLAGS="$LDFLAGS -F${brew_opt}/qt/lib"
+LDFLAGS="$LDFLAGS -L${brew_opt}/gettext/lib"
+CPPFLAGS="$CPPFLAGS -I${brew_opt}/gettext/include"
+LDFLAGS="$LDFLAGS -L${brew_opt}/libffi/lib"
 CPPFLAGS="$CPPFLAGS -I${brew_opt}/sundials27/include"
 LDFLAGS="$LDFLAGS -L${brew_opt}/sundials27/lib"
-CPPFLAGS="$CPPFLAGS -I${brew_opt}/qscintilla2/include"
-LDFLAGS="$LDFLAGS -L${brew_opt}/qscintilla2/lib"
 export LDFLAGS
 export CPPFLAGS
 
 
 PKG_CONFIG_PATH=""
-# Add ICU4C to the pkg-config path
 PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${brew_opt}/icu4c/lib/pkgconfig"
-# Add Qt5 to the pkg-config path
-PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${brew_opt}/qt/lib/pkgconfig"
 export PKG_CONFIG_PATH
 
 
@@ -39,7 +35,7 @@ export PKG_CONFIG_PATH
   --disable-no-undefined \
   --without-osmesa \
   --without-fltk \
-  --with-qt=5 \
+  --without-qt \
   --with-hdf5-includedir=$brew_opt/hdf5/include \
   --with-hdf5-libdir=$brew_opt/hdf5/lib \
   --with-blas="-L${brew_opt}/veclibfort/lib -lvecLibFort" \
