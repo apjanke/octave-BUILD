@@ -11,6 +11,13 @@ hg clone https://www.octave.org/hg/octave
 git clone https://github.com/apjanke/octave-BUILD
 ```
 
+Install Octave's dependencies using Homebrew.
+
+```
+brew tap octave-app/octave-app-bases
+brew install --only-dependencies octave-head-test
+```
+
 Bootstrap the Octave source tree.
 
 ```

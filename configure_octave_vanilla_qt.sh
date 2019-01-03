@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# Builds Octave against Homebrew-installed dependencies, including
+# Homebrew-installed Qt.
+
 
 brew_opt="$(brew --prefix)/opt"
 
@@ -15,15 +19,14 @@ export GHOSTSCRIPT="$(brew --prefix ghostscript)/bin/gs"
 
 # Qt 5.12 compatibility hack
 export QCOLLECTIONGENERATOR="qhelpgenerator"
-export QT_CPPFLAGS="-I$(brew --prefix qt)/include}"
-export QT_LDFLAGS="-F$(brew --prefix qt)/lib}"
+QT_PREFIX=/usr/local/opt/qt-vanilla
+#export QT_CPPFLAGS="-I${QT_PREFIX}/include}"
+#export QT_LDFLAGS="-F${QT_PREFIX}/lib}"
 
 # Set up dependencies that are not linked by Homebrew
 
 PATH="$brew_opt/texinfo/bin:$PATH"
 PATH="$brew_opt/qt/bin:$PATH"
-
-
 
 export LDFLAGS=""
 export CPPFLAGS=""
@@ -39,8 +42,8 @@ LDFLAGS="$LDFLAGS -L${brew_opt}/sundials27/lib"
 CPPFLAGS="$CPPFLAGS -I${brew_opt}/qscintilla2/include"
 LDFLAGS="$LDFLAGS -L${brew_opt}/qscintilla2/lib"
 # Qt 5.12 compatibility hack
-CPPFLAGS="$CPPFLAGS $QT_CPPFLAGS"
-LDFLAGS="$LDFLAGS $QT_LDFLAGS"
+#CPPFLAGS="$CPPFLAGS $QT_CPPFLAGS"
+#LDFLAGS="$LDFLAGS $QT_LDFLAGS"
 
 PKG_CONFIG_PATH=""
 PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${brew_opt}/icu4c/lib/pkgconfig"
