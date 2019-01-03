@@ -53,7 +53,6 @@ export PKG_CONFIG_PATH
 ../../octave/configure --prefix=/tmp/test-octave \
   --without-x \
   --disable-no-undefined \
-  --without-osmesa \
   --without-fltk \
   --with-qt=5 \
   --with-hdf5-includedir=$brew_opt/hdf5/include \
