@@ -26,5 +26,5 @@ cd octave-BUILD
 mkdir build
 cd build
 . ../my_configure.sh
-make
+make V=1 -j 8
 ```
