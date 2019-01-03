@@ -26,12 +26,12 @@ cd octave
 cd ..
 ```
 
-Then, in octave-BUILD, make a new subdirectory called `build`, cd into it, and run one of the `my_configure*` scripts from there, and then `make`.
+Then, in octave-BUILD, make a new subdirectory called `build`, cd into it, source one of the `configure_*` scripts from there, and then `make`.
 
 ```
 cd octave-BUILD
 mkdir build
 cd build
-. ../my_configure.sh
+. ../configure_octave.sh
 make V=1 -j 8
 ```
