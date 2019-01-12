@@ -17,16 +17,21 @@ export JAVA_HOME="$(/usr/libexec/java_home -v 9)"
 # error that happens with Ghostscript distribution install
 export GHOSTSCRIPT="$(brew --prefix ghostscript)/bin/gs"
 
+PKG_CONFIG_PATH=""
+
 # Qt 5.12 compatibility hack
 export QCOLLECTIONGENERATOR="qhelpgenerator"
 QT_PREFIX=/usr/local/opt/qt-vanilla
 #export QT_CPPFLAGS="-I${QT_PREFIX}/include}"
 #export QT_LDFLAGS="-F${QT_PREFIX}/lib}"
 
+# Make our Qt available
+PATH="$QT_PREFIX/bin:$PATH"
+PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${QT_PREFIX}/lib/pkgconfig"
+
 # Set up dependencies that are not linked by Homebrew
 
 PATH="$brew_opt/texinfo/bin:$PATH"
-PATH="$brew_opt/qt/bin:$PATH"
 
 export LDFLAGS=""
 export CPPFLAGS=""
@@ -35,8 +40,6 @@ CPPFLAGS="$CPPFLAGS -I${brew_opt}/readline/include"
 LDFLAGS="$LDFLAGS -L${brew_opt}/gettext/lib"
 CPPFLAGS="$CPPFLAGS -I${brew_opt}/gettext/include"
 LDFLAGS="$LDFLAGS -L${brew_opt}/libffi/lib"
-LDFLAGS="$LDFLAGS -F${brew_opt}/qt/lib"
-CPPFLAGS="$CPPFLAGS -I${brew_opt}/qt/include"
 CPPFLAGS="$CPPFLAGS -I${brew_opt}/sundials27/include"
 LDFLAGS="$LDFLAGS -L${brew_opt}/sundials27/lib"
 CPPFLAGS="$CPPFLAGS -I${brew_opt}/qscintilla2/include"
@@ -45,9 +48,7 @@ LDFLAGS="$LDFLAGS -L${brew_opt}/qscintilla2/lib"
 #CPPFLAGS="$CPPFLAGS $QT_CPPFLAGS"
 #LDFLAGS="$LDFLAGS $QT_LDFLAGS"
 
-PKG_CONFIG_PATH=""
 PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${brew_opt}/icu4c/lib/pkgconfig"
-PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${brew_opt}/qt/lib/pkgconfig"
 export PKG_CONFIG_PATH
 
 
