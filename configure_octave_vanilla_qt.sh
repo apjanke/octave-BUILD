@@ -52,9 +52,11 @@ PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${brew_opt}/icu4c/lib/pkgconfig"
 export PKG_CONFIG_PATH
 
 
-../../octave/configure --prefix=/tmp/test-octave \
+../../octave/configure \
+  --prefix=/tmp/test-octave \
   --without-x \
   --disable-no-undefined \
+  --disable-docs \
   --without-osmesa \
   --without-fltk \
   --with-qt=5 \
