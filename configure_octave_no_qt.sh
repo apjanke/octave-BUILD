@@ -22,8 +22,8 @@ CPPFLAGS="$CPPFLAGS -I${brew_opt}/readline/include"
 LDFLAGS="$LDFLAGS -L${brew_opt}/gettext/lib"
 CPPFLAGS="$CPPFLAGS -I${brew_opt}/gettext/include"
 LDFLAGS="$LDFLAGS -L${brew_opt}/libffi/lib"
-CPPFLAGS="$CPPFLAGS -I${brew_opt}/sundials@2/include"
-LDFLAGS="$LDFLAGS -L${brew_opt}/sundials@2/lib"
+CPPFLAGS="$CPPFLAGS -I${brew_opt}/sundials/include"
+LDFLAGS="$LDFLAGS -L${brew_opt}/sundials/lib"
 export LDFLAGS
 export CPPFLAGS
 
