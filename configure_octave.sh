@@ -49,12 +49,12 @@ PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${brew_opt}/icu4c/lib/pkgconfig"
 PKG_CONFIG_PATH="$PKG_CONFIG_PATH:${brew_opt}/qt/lib/pkgconfig"
 export PKG_CONFIG_PATH
 
-
+# Docs are disabled because of a crash in the build
+#  --disable-docs \
 ../../octave/configure \
   --prefix=/tmp/test-octave \
   --without-x \
   --disable-no-undefined \
-  --disable-docs \
   --without-fltk \
   --with-qt=5 \
   --with-hdf5-includedir=$brew_opt/hdf5/include \
