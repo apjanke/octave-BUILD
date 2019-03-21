@@ -2,6 +2,10 @@
 
 This repo contains my tools for building Octave.
 
+This repo is for hackers who want to work on Octave’s source code itself.
+If you just want a working Octave, you’re better off using [Octave.app](https://octave-app.org) or one of the Octave Homebrew formulae, like `brew install octave` or `brew tap octave-app/octave-app; brew install octave-octave-app`.
+
+
 ## Usage
 
 To use it, check out this repo next to the octave repo. 
@@ -11,11 +15,11 @@ hg clone https://www.octave.org/hg/octave
 git clone https://github.com/apjanke/octave-BUILD
 ```
 
-Install Octave's dependencies using Homebrew.
+Install Octave’s dependencies using Homebrew.
 
 ```
-brew tap octave-app/octave-app-bases
-brew install --only-dependencies octave-head-test
+brew tap octave-app/octave-app
+brew install --only-dependencies octave-head
 ```
 
 Bootstrap the Octave source tree.
