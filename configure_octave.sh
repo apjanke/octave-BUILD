@@ -23,6 +23,7 @@ export QCOLLECTIONGENERATOR="qhelpgenerator"
 #export QT_LDFLAGS="-F$(brew --prefix qt)/lib}"
 
 # Set up dependencies that are not linked by Homebrew
+# (i.e. keg-only dependencies)
 
 PATH="$brew_opt/texinfo/bin:$PATH"
 PATH="$brew_opt/qt/bin:$PATH"
