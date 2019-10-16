@@ -6,7 +6,11 @@
 
 brew_opt="$(brew --prefix)/opt"
 
-#export PATH=$brew_opt/bison/bin:$PATH
+# Use clang just to be more like Homebrew, so we can have nicer diffs
+# of our build log output.
+export CC=clang
+export CXX=clang++
+
 export YACC=$brew_opt/bison/bin/yacc
 
 ## Set Java home directory
