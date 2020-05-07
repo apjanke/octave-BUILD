@@ -60,7 +60,6 @@ LDFLAGS="$LDFLAGS -L${brew_opt}/sundials/lib"
   --prefix=/tmp/test-octave \
   --without-x \
   --disable-no-undefined \
-  --disable-docs \
   --without-fltk \
   --with-qt=5 \
   --with-hdf5-includedir=$brew_opt/hdf5/include \
