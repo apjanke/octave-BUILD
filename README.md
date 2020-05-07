@@ -18,7 +18,7 @@ Install Octave’s dependencies using Homebrew.
 
 ```bash
 brew tap octave-app/octave-app
-brew install --only-dependencies octave-head
+brew install --only-dependencies octave-default
 ```
 
 Bootstrap the Octave source tree.
